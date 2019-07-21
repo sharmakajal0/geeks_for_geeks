@@ -38,5 +38,4 @@ if __name__ == "__main__":
     L_LIST.push(3)
     L_LIST.push(4)
     L_LIST.push(5)
-    print(L_LIST)
     L_LIST.delete_list()
