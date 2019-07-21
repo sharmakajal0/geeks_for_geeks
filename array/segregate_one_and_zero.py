@@ -25,7 +25,7 @@ def main(args):
     '''
     print(args)
     input_array = str(input())
-    print(segregate(input_array))
+    print(''.join(segregate(input_array)))
 
 if __name__ == "__main__":
     main(argv)
