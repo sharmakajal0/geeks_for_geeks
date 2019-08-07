@@ -6,10 +6,10 @@ def balanced(test_array):
     '''Function Definition for balanced parenthesis'''
 
     stack = []
-    for i in range(len(test_array)):
+    for sym in test_array:
 
-        if (test_array[i] == '(' or test_array[i] == '[' or test_array[i] == '{'):
-            stack.append(test_array[i])
+        if sym in ('(', '[', '{'):
+            stack.append(sym)
             continue
 
         stack_length = len(stack)
@@ -17,35 +17,36 @@ def balanced(test_array):
         if stack_length == 0:
             return False
 
-        if test_array[i] == ')':
+        if sym == ')':
 
             temp_var = stack.pop()
 
             if temp_var in ('{', '['):
                 return False
 
-        elif test_array[i] == '}':
+        elif sym == '}':
             temp_var = stack.pop()
 
             if temp_var in ('(', '['):
                 return False
 
-        elif temp_var == ']':
+        else:
             temp_var = stack.pop()
 
             if temp_var in ('(', '{'):
                 return False
 
     if stack_length:
-        return True
+        return False
 
-    return False
+    return True
 
 if __name__ == "__main__":
 
-    TEST_ARRAY = "{()}[]"
+    for _ in range(int(input())):
+        TEST_ARRAY = list(map(str, input().split()))
 
-    if balanced(TEST_ARRAY):
-        print("Balanced")
-    else:
-        print("Not Balanced")
+        if balanced(TEST_ARRAY):
+            print("Balanced")
+        else:
+            print("Not Balanced")
